@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@layer base {
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .th-default {
+    @apply px-6 py-2 text-xs font-medium text-gray-500 uppercase tracking-wider;
+  }
+
+  .td-default {
+    @apply px-6 py-2 whitespace-nowrap text-sm;
+  }
+}
+
+@layer components {
+}
+
+@layer utilites {
+}
+
+@layer variants {
+}
