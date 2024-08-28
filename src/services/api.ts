@@ -4,7 +4,7 @@ import { getTokenFromLocalStorage, removeTokenFromLocalStorage } from '@/utils/t
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL,
-  timeout: 600 * 1000, // 600 seconds
+  timeout: 600 * 1000,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -12,7 +12,6 @@ const api = axios.create({
 
 const onRequestSuccess = (config: InternalAxiosRequestConfig) => {
   const token = getTokenFromLocalStorage()
-  // console.log(token)
   if (token) config.headers.Authorization = `Bearer ${token}`
   return config
 }
@@ -20,7 +19,7 @@ const onRequestError = (error: AxiosError): Promise<AxiosError> => Promise.rejec
 
 const onResponseSuccess = (response: AxiosResponse): AxiosResponse => response.data
 const onResponseError = (error: AxiosError): Promise<AxiosError> => {
-  if (error.response?.status === 401) removeTokenFromLocalStorage() // remove token for unauthorized user
+  if (error.response?.status === 401) removeTokenFromLocalStorage()
   return Promise.reject(error.response ? error.response.data : error)
 }
 

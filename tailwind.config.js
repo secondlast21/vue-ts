@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
+import daisyui from 'daisyui'
+
 export default {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+  plugins: [daisyui],
   theme: {
     extend: {
       colors: {
@@ -32,10 +35,25 @@ export default {
         information: '#69c0ff',
         greyLight: '#f0f2f5',
         grey: '#a3a3a3',
-        black: '#1c1c1c'
+        black: '#1c1c1c',
       },
-    }
+    },
   },
-  plugins: [],
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          primary: '#16754d', //putih abu latte
+          secondary: '#6c6f85', //abu muda
+          accent: '#16754d', // hijau mocca
+          neutral: '#4c4f69', // abu tua latte
+          'base-100': '#ffffff', // putih abu latte
+          info: '#04a5e5', // biru langit latte
+          success: '#40a02b', // hijau latte
+          warning: '#df8e1d', // kuning latte
+          error: '#ce5050',
+        },
+      },
+    ],
+  },
 }
-

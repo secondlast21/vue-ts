@@ -15,9 +15,132 @@
   .td-default {
     @apply px-6 py-2 whitespace-nowrap text-sm;
   }
+
+  .input-default {
+    @apply w-full px-3 py-2 border rounded shadow-sm text-sm focus:outline-none focus:border-primary;
+  }
+
+  .custom-select {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #16754d; /* Light gray color for bottom border */
+    padding: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+  }
+
+  .custom-select:focus {
+    outline: none;
+    border-bottom: 2px solid #16754d; /* Primary color for focused bottom border */
+  }
+
+  .custom-select::after {
+    content: '▼';
+    position: absolute;
+    right: 10px;
+    pointer-events: none;
+  }
 }
 
 @layer components {
+  /* Status Biro */
+  .status-biro-new {
+    @apply text-sm bg-secondaryLightActive text-secondary text-center px-4 py-2 rounded-full;
+  }
+
+  .status-biro-registered {
+    @apply text-sm bg-primaryLightActive text-primary text-center px-4 py-2 rounded-full;
+  }
+
+  .status-biro-active {
+    @apply text-sm bg-informationLight text-information text-center px-4 py-2 rounded-full;
+  }
+
+  .status-biro-block {
+    @apply text-sm bg-dangerLight text-danger text-center px-4 py-2 rounded-full;
+  }
+
+  .status-biro-deleted {
+    @apply text-sm bg-dangerLight text-danger text-center px-4 py-2 rounded-full;
+  }
+
+  .status-biro-default {
+    @apply text-sm bg-gray-100 text-center px-4 py-2 rounded-full;
+  }
+
+  /* Status Data */
+  .status-data-new {
+    @apply text-sm bg-secondaryLightActive text-secondary text-center px-4 py-2 rounded-full;
+  }
+
+  .status-data-registered {
+    @apply text-sm bg-primaryLightActive text-primary text-center px-4 py-2 rounded-full;
+  }
+
+  .status-data-fill {
+    @apply text-sm bg-secondaryLightActive text-secondary text-center px-4 py-2 rounded-full;
+  }
+
+  .status-data-rejected {
+    @apply text-sm bg-secondaryLightActive text-secondary text-center px-4 py-2 rounded-full;
+  }
+
+  .status-data-approved {
+    @apply text-sm bg-secondaryLightActive text-secondary text-center px-4 py-2 rounded-full;
+  }
+
+  .status-data-block {
+    @apply text-sm bg-dangerLight text-danger text-center px-4 py-2 rounded-full;
+  }
+
+  .status-data-deleted {
+    @apply text-sm bg-dangerLight text-danger text-center px-4 py-2 rounded-full;
+  }
+
+  .status-data-default {
+    @apply text-sm bg-gray-100 text-center px-4 py-2 rounded-full;
+  }
+
+  .button-primary {
+    @apply bg-primary text-white text-xs rounded-full hover:bg-primaryHover focus:outline-none focus:ring-2 focus:bg-primaryHover py-2 px-4;
+  }
+
+  .button-secondary {
+    @apply bg-secondary text-white text-xs rounded-full hover:bg-secondaryHover focus:outline-none focus:ring-2 focus:bg-secondaryHover py-2 px-4;
+  }
+
+  .button-danger {
+    @apply bg-danger text-white text-xs rounded-full hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 py-2 px-4 flex-center gap-2;
+  }
+
+  .button-primary-outline {
+    @apply bg-none text-primary border-[1px] border-primary text-xs rounded-full hover:bg-primaryHover hover:text-white focus:outline-none focus:ring-2 focus:bg-primaryHover py-2 px-4;
+  }
+
+  .button-danger-outline {
+    @apply bg-none text-danger border-[1px] border-danger text-xs rounded-full hover:bg-red-700 hover:text-white focus:outline-none focus:ring-2 focus:bg-red-700 py-2 px-4 flex-center gap-2;
+  }
+
+  .layout {
+    width: 100%;
+    &-side {
+      & > .layout-overlay {
+        @apply cursor-pointer bg-transparent transition-colors duration-200 ease-out;
+      }
+    }
+    &-toggle {
+      &:checked ~ .layout-side {
+        & > .layout-overlay {
+          background-color: #0006;
+        }
+      }
+      &:focus-visible ~ .layout-content label.layout-button {
+        @apply outline outline-2 outline-offset-2;
+      }
+    }
+  }
 }
 
 @layer utilites {
